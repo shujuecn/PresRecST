@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 This repository contains source code and datasets for "[PresRecST: A novel herbal prescription recommendation algorithm
-for real-world patients with integration of syndrome differentiation and treatment planning](https://doi.org/10.1093/jamia/ocae066)". 
+for real-world patients with integration of syndrome differentiation and treatment planning](https://doi.org/10.1093/jamia/ocae066)".
 
 In this study, we proposed a novel herbal **Pres**cription **Rec**ommendation network architecture for real-world patients with
 integration of **S**yndrome differentiation and **T**reatment planning (termed PresRecST, See Fig1 below), following the basic diagnostic and
@@ -10,7 +10,7 @@ treatment process of real-world syndrome differentiation and treatment determina
 
 ## 2. Overview
 
-![PresRecST Framework](PresRecST_framework.png)
+![PresRecST Framework](./fig/PresRecST_framework.png)
 
 Fig1. Framework of PresRecST. The model takes the knowledge embedding matrices of SDTKG and the patient’s symptom set as
 input, and combines them with the residual-like neural network for recommending syndromes(SDM), treatment methods(TMM) and
@@ -27,16 +27,15 @@ $ pip install -r requirements.txt
 ### (1) dataset
 The relevant data required by the model are uniformly placed in the "data" folder. This folder contains the following two data files:
 <li><b>prescript_1195.csv</b>: This dataset is derived from the work of [Yao et al., TKDE 2018], consisting of 33,765 entries after processing (termed TCM-PD in this study). This dataset was utilized for subsequent research on TCM prescription recommendation.
-<li><b>TCM_Lung.xlsx</b>: This dataset was constructed in this study and originates from the First Affiliated Hospital of Henan University of Chinese Medicine (FAH-HUCM). 
-It focuses on pulmonary diseases and comprises 14,948 entries after processing. Considering the clinical nature of the data, despite de-identification efforts, its clinical characteristics were still taken into account. Therefore, only 4,484 entries are made publicly available in this project. 
-Each entry includes symptoms, syndromes, therapeutic methods, and TCM prescriptions in the form of IDs, along with a mapping table providing the corresponding names for these IDs. 
+<li><b>TCM_Lung.xlsx</b>: This dataset was constructed in this study and originates from the First Affiliated Hospital of Henan University of Chinese Medicine (FAH-HUCM).
+It focuses on pulmonary diseases and comprises 14,948 entries after processing. Considering the clinical nature of the data, despite de-identification efforts, its clinical characteristics were still taken into account. Therefore, only 4,484 entries are made publicly available in this project.
+Each entry includes symptoms, syndromes, therapeutic methods, and TCM prescriptions in the form of IDs, along with a mapping table providing the corresponding names for these IDs.
 
 **To ensure data security, we have encoded the TCM-Lung dataset (i.e., each symptom/syndrome/treatment method/herb has been converted into an ID). If you require the full names for research purposes, please contact us via email: <a>x_dong@bjtu.edu.cn</a>.**
 
 ### (2) main code
 The python script file of the model is shown in this project, including the following files:
-<li><b>main_Lung.py</b>: Run the entire program (based on the TCM-Lung dataset)
-<li><b>main_TCMPD.py</b>: Run the entire program (based on the TCM-PD dataset)
+<li><b>main.py</b>: Run the entire program (based on the TCM-PD or TCM-Lung dataset)
 <li><b>dataloader.py</b>: Data loading functions, including loading for both datasets
 <li><b>model.py</b>: Model-related programs, including models applicable to both datasets
 <li><b>tools.py</b>: Some related utility functions
@@ -44,12 +43,12 @@ The python script file of the model is shown in this project, including the foll
 
 ### (3) result
 
-After running the "main_Lung.py" or "main_TCMPD.py" file, the Top@K performance results of the model on the testing set can be obtained. 
-The result file is placed in the "result" folder, that is, the "Evaluation.xlsx" file. 
-The result file contains four columns: 
+After running the "main_Lung.py" or "main_TCMPD.py" file, the Top@K performance results of the model on the testing set can be obtained.
+The result file is placed in the "result" folder, that is, the "Evaluation.xlsx" file.
+The result file contains four columns:
 <li>the "k" column represents the number of k in Top@k (k ranges from 1 to 20 in the results)</li>
 <li>the "Precision" column represents the precision@k</li>
-<li>the "Recall" column represents the recall@k</li> 
+<li>the "Recall" column represents the recall@k</li>
 <li>the "F1_score" column represents the F1 score@k</li>
 
 
@@ -69,7 +68,7 @@ If you find PresRecST useful for your research, please consider citing the follo
 }
 ```
 
-<b>If you have better suggestions or questions about our work, please contact us: <a>x_dong@bjtu.edu.cn</a>. </b> 
+<b>If you have better suggestions or questions about our work, please contact us: <a>x_dong@bjtu.edu.cn</a>. </b>
 
 <b>Welcome to follow our project on GitHub: <a>https://github.com/2020MEAI </a> and <a> https://github.com/xdong97 </a>. </b>
 
